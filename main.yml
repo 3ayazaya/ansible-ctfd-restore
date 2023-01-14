@@ -1,0 +1,18 @@
+---
+
+- hosts: board                         
+  become: true
+  vars:
+    custom_theme: neon
+    board_path: '/srv/ctf'
+    restore_from_backup: true
+  roles:
+    - CTFd-install
+  tasks:
+    - name: Starting board
+      include_tasks: tasks/start-board.yml
+    - name: Restore game from backup
+      include_tasks: tasks/import-backup.yml
+      when: restore_from_backup == true
+        
+    

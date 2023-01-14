@@ -1,0 +1,8 @@
+---
+
+- name: Cloning neon theme
+  git:
+    repo: https://github.com/chainflag/ctfd-neon-theme.git
+    dest: '{{ board_path }}/CTFd/themes/neon'
+    clone: yes
+    update: yes

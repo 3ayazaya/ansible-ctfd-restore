@@ -1,0 +1,10 @@
+---
+
+- name: Create ctfd_secret_key
+  ansible.builtin.shell: 'head -c 64 /dev/urandom > {{ board_path }}/.ctfd_secret_key'
+
+- name: Start CTFd via docker-compose
+  community.docker.docker_compose:
+    project_src: '{{ board_path }}'
+    files:
+    - docker-compose.yml

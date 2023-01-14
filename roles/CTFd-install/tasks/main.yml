@@ -1,0 +1,16 @@
+---
+
+- name: Cloning CTFd board
+  git:
+    repo: https://github.com/CTFd/CTFd.git
+    dest: '{{ board_path }}'
+    clone: yes
+    update: yes
+
+- name: Install neon theme
+  include_tasks: install-neon-theme.yml
+  when: custom_theme == 'neon'
+
+- name: Copy backup of the game
+  include_tasks: copy-backup.yml
+  when: restore_from_backup == true

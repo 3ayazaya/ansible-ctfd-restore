@@ -1,0 +1,6 @@
+---
+
+- name: Copy backup of the game
+  ansible.builtin.copy:
+    src: backup.zip
+    dest: '{{ board_path }}'

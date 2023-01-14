@@ -1,0 +1,5 @@
+---
+
+custom_theme: none
+board_path: '/srv/ctf'
+restore_from_backup: false
